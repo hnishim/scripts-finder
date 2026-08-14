@@ -1,0 +1,30 @@
+prompt.md
+.venv/
+.DS_Store
+
+# Python一般
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.log
+*.sqlite3
+*.db
+*.egg-info/
+.env/
+env/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+.eggs/
+.idea/
+.vscode/
+# Jupyter
+.ipynb_checkpoints/
+# macOS
+.DS_Store
+# VSCode
+.settings/
