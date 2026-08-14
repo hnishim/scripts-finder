@@ -1,9 +1,8 @@
-.DS_Store
-**/.DS_Store
-._*
-
 __pycache__/
 *.py[cod]
+*$py.class
+*.pyo
+*.pyd
 .venv/
 **/.venv/
 node_modules/
@@ -13,6 +12,19 @@ dist/
 build/
 **/build/
 *.log
+
+*.sqlite3
+*.db
+*.egg-info/
+.env/
+env/
+.mypy_cache/
+.pytest_cache/
+.eggs/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.settings/
 
 .env
 .env.*
