@@ -5,7 +5,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "$0")" && pwd)
 REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." && pwd)
 FEATURE_DIR="$REPO_ROOT/context-menu/create-minute-by-Gemini"
 PYTHON_DIR="$FEATURE_DIR/python"
-EXPECTED_NAMESPACE='my.gemini.minutes'
+EXPECTED_NAMESPACE='my.script.create-minute-by-gemini'
 LEGACY_NAMESPACE='com.hnishim.create-minute-by-gemini'
 
 python3 - "$PYTHON_DIR/setup.sh" "$PYTHON_DIR/run.sh" "$PYTHON_DIR/README.md" <<'PY'
@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 setup, run, readme = (Path(p) for p in sys.argv[1:])
-expected = "my.gemini.minutes"
+expected = "my.script.create-minute-by-gemini"
 legacy = "com.hnishim.create-minute-by-gemini"
 
 for path in (setup, run, readme):
