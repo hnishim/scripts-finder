@@ -79,9 +79,23 @@ HOME="$home" FAKE_PYTHON_EVENTS="$events" /bin/bash "$PYTHON_DIR/run.sh" \
 
 cat >"$fake_bin/osascript" <<'OSA'
 #!/bin/bash
+set -euo pipefail
+script=${2:-}
+if [[ "$script" == *"display dialog"* ]]; then
+    printf '%s\n' ja
+fi
 exit 0
 OSA
 chmod 755 "$fake_bin/osascript"
+
+normal_input="$TMP_ROOT/20260919_input.mp3"
+: >"$normal_input"
+before_runtime_count=$(grep -c '^runtime:' "$events")
+PATH="$fake_bin:$PATH" HOME="$home" GEMINI_API_KEY_FOR_MINUTES='fixture-key' \
+    FAKE_PYTHON_EVENTS="$events" /bin/bash "$FEATURE_DIR/create-minutes.sh" "$normal_input" \
+    >"$TMP_ROOT/create-minutes.out" 2>"$TMP_ROOT/create-minutes.err"
+[ "$(grep -c '^runtime:' "$events")" -eq "$((before_runtime_count + 1))" ]
+grep -F " ja $normal_input" "$events" >/dev/null
 
 before_runtime_count=$(grep -c '^runtime:' "$events")
 set +e
@@ -93,4 +107,4 @@ set -e
 [ "$guard_status" -ne 0 ]
 [ "$(grep -c '^runtime:' "$events")" -eq "$before_runtime_count" ]
 
-printf '%s\n' '[PASS] create-minute-by-Gemini namespace and no-input guard contract'
+printf '%s\n' '[PASS] create-minute-by-Gemini namespace, entry-point chain, and no-input guard contract'
