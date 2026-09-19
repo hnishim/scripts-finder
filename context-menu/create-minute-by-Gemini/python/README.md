@@ -27,7 +27,7 @@ mp3音声ファイルをGoogle Gemini APIで直接処理し、議事録（要約
 - mp3ファイルは20MB未満を推奨します。
 - API利用料・トークン制限に注意してください。
 - `prompt.md`は、`Dev/prompts/gemini-gems/NotebookLM_create-minutes.md`へのシンボリックリンクです。
-- 仮想環境は各Macの `~/Library/Application Support/com.hnishim.create-minute-by-gemini` に作成されます。
+- 仮想環境は各Macの `~/Library/Application Support/my.script.create-minute-by-gemini` に作成されます。
 
 ## 依存パッケージ
 - google-genai

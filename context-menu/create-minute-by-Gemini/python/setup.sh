@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-RUNTIME_DIR="$HOME/Library/Application Support/com.hnishim.create-minute-by-gemini"
+RUNTIME_DIR="$HOME/Library/Application Support/my.script.create-minute-by-gemini"
 VENV_DIR="$RUNTIME_DIR/.venv"
 
 if [ -n "${PYTHON_BIN:-}" ]; then
